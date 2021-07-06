@@ -6,8 +6,6 @@ function App() {
 
   const [data, setData] = React.useState(null);
 
-  console.log(process.env.REACT_APP_API_URL);
-
   React.useEffect(() => {
     fetch(process.env.REACT_APP_API_URL+"/home")
       .then((res) => res.json())
