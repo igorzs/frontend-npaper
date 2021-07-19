@@ -7,7 +7,7 @@ export default function Routes(){
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/cadastro/novo" component={Cadastro} />
+                <Route path="/npaper/" component={Cadastro} />
             </Switch>
         </BrowserRouter>
     );
