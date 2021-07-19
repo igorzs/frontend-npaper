@@ -2,7 +2,9 @@ import React from "react";
 import logo from './logo.png';
 import './App.css';
 
-function App() {
+import Routes from './routes';
+
+/*function App() {
 
   const [data, setData] = React.useState(null);
 
@@ -19,6 +21,13 @@ function App() {
         <p>{!data ? "Carregando..." : data}</p>
       </header>
     </div>
+  );
+}*/
+
+function App() {
+
+  return (
+    <Routes />
   );
 }
 
