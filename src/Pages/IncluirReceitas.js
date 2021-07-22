@@ -36,6 +36,29 @@ export default class IncluirReceitas extends Component {
             return <Redirect to="/listareceitas" />;
         } else {
             return (
+
+                <div>
+
+                <div className="content-wrapper" style={{ minHeight: '1345.6px' }}>
+                    <section className="content-header">
+                        <div className="container-fluid">
+                            <div className="row mb-2">
+                                <div className="col-sm-6">
+                                    <h1>Nova Receita</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section className="content">
+                        <div className="container-fluid">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="card card-primary">
+                                        <div className="card-header">
+                                            <h3 className="card-title">Incluir</h3>
+                                        </div>
+
+
                 <form onSubmit={this.handleSubmit}>
                     <fieldset>
                         <legend>Incluir Receita</legend>
@@ -87,7 +110,7 @@ export default class IncluirReceitas extends Component {
                                     type="radio"
                                     name="recebido"
                                     value="true"
-                                    checked={this.state.receita.ativo === "true"}
+                                    //checked={this.state.receita.ativo === "true"}
                                     onChange={this.handleInputChange}
                                 />
                                 Recebido
@@ -97,7 +120,7 @@ export default class IncluirReceitas extends Component {
                                     type="radio"
                                     value="false"
                                     name="recebido"
-                                    checked={this.state.receita.ativo === "false"}
+                                    //checked={this.state.receita.ativo === "false"}
                                     onChange={this.handleInputChange}
                                 />
                                 Não Recebido
@@ -110,6 +133,16 @@ export default class IncluirReceitas extends Component {
                         </button>
                     </fieldset>
                 </form>
+
+                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+
+            </div>
             );
         }
     }
@@ -126,7 +159,7 @@ export default class IncluirReceitas extends Component {
     };
 
     handleSubmit = event => {
-        fetch("http://localhost:3003/home/receita", {
+        fetch("http://localhost:3001/home/receita", {
             method: "post",
             body: JSON.stringify(this.state.receita),
             headers: {
