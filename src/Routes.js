@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Dashboard from "./Pages/Dashboard";
 import CadastroReceitas from './Pages/CadastroReceitas';
 import ListaReceitas from './Pages/ListaReceitas';
+import IncluirReceitas from './Pages/IncluirReceitas';
 
 
 export default class Routes extends Component {
@@ -14,6 +15,9 @@ export default class Routes extends Component {
                 </Route>
                 <Route exact path="/cadastroreceitas">
                     <CadastroReceitas />
+                </Route>
+                <Route exact path="/incluirreceitas">
+                    <IncluirReceitas />
                 </Route>
                 <Route exact path="/listareceitas">
                     <ListaReceitas />

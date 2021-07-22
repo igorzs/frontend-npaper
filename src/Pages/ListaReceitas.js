@@ -1,6 +1,42 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 export default class ListaReceitas extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            receita: [],
+            erro: null
+        };
+    }
+
+    componentDidMount() {
+        fetch(`http://localhost:3003/home/receita`)
+            .then(receita =>
+                receita.json().then(receita => this.setState({ receita }))
+            )
+            .catch(erro => this.setState({ erro }));
+    }
+
+    render() {
+        const { receita } = this.state;
+
+        return receita.map((receita, index) => (
+            <div className="receita-list">
+                <div key={index}>
+                    <h5>{receita.descricao}</h5>
+                    <article>
+                        <strong> {receita.valor} </strong>
+                        <p> <Link to={`/receita/${receita.id}`}> Acessar </Link> </p>
+                        <br />
+                    </article>
+                </div>
+            </div>
+        ))
+    }
+
     render() {
         return (
             <div>
@@ -60,8 +96,8 @@ export default class ListaReceitas extends Component {
                         </div>
                     </section>
                 </div>
-
             </div>
+
         )
     }
 }
