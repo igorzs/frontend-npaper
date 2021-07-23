@@ -61,12 +61,6 @@ export default class Menu extends Component {
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="/cadastroreceitas" className="nav-link">
-                                                <i className="far fa-circle nav-icon" />
-                                                <p>Cadastro</p>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
                                             <Link to="/incluirreceitas" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
                                                 <p>Incluir</p>

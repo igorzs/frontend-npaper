@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import './index.css';
+
 
 export default class IncluirReceitas extends Component {
     constructor(props) {

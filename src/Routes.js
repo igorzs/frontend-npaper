@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Dashboard from "./Pages/Dashboard";
-import CadastroReceitas from './Pages/CadastroReceitas';
 import ListaReceitas from './Pages/ListaReceitas';
 import IncluirReceitas from './Pages/IncluirReceitas';
 
@@ -12,9 +11,6 @@ export default class Routes extends Component {
             <Switch>
                 <Route exact path="/">
                     <Dashboard />
-                </Route>
-                <Route exact path="/cadastroreceitas">
-                    <CadastroReceitas />
                 </Route>
                 <Route exact path="/incluirreceitas">
                     <IncluirReceitas />
