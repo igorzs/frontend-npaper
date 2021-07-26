@@ -50,8 +50,10 @@ export default class Menu extends Component {
                                         <i className="nav-icon far fa-plus-square" />
                                         <p>
                                             Receitas
+                                            
                                             <i className="fas fa-angle-left right" />
                                         </p>
+                                       
                                     </a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
@@ -62,6 +64,30 @@ export default class Menu extends Component {
                                         </li>
                                         <li className="nav-item">
                                             <Link to="/incluirreceitas" className="nav-link">
+                                                <i className="far fa-circle nav-icon" />
+                                                <p>Incluir</p>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li className="nav-item has-treeview">
+                                    <a href="#" className="nav-link">
+                                        <i className="nav-icon far fa-plus-square" />
+                                        <p>
+                                            Despesas                                            
+                                            <i className="fas fa-angle-left right" />
+                                        </p>
+                                       
+                                    </a>
+                                    <ul className="nav nav-treeview">
+                                        <li className="nav-item">
+                                            <Link to="/listadespesas" className="nav-link">
+                                                <i className="far fa-circle nav-icon" />
+                                                <p>Listar</p>
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link to="/incluirdespesas" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
                                                 <p>Incluir</p>
                                             </Link>
