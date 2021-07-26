@@ -159,6 +159,7 @@ export default class IncluirReceitas extends Component {
     };
 
     handleSubmit = event => {
+        console.log("entrou aqui")
         fetch("http://localhost:3001/home/receita", {
             method: "post",
             body: JSON.stringify(this.state.receita),
@@ -167,6 +168,7 @@ export default class IncluirReceitas extends Component {
             }
         })
             .then(data => {
+                console.log(data)
                 if (data.ok) {
                     this.setState({ redirect: true });
                 } else {
