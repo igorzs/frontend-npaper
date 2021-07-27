@@ -11,7 +11,8 @@ export default class IncluirDespesas extends Component {
                 descricao: "",
                 valor: "",
                 data: "",
-                recebido: "true"
+                recebido: "true",
+                isDespesa: true
             },
             erro: null,
             redirect: false
@@ -159,7 +160,7 @@ export default class IncluirDespesas extends Component {
     };
 
     handleSubmit = event => {
-        console.log("entrou aqui")
+        console.log(this.state.despesa)
         fetch("http://localhost:3001/home/despesa", {
             method: "post",
             body: JSON.stringify(this.state.despesa),
