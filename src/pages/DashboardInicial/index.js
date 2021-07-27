@@ -1,9 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import Header from "../../components/header";
+import Menu from "../../components/menu";
+import Footer from "../../components/footer";
 
 export default class Dashboard extends Component {
     render() {
         return (
             <div>
+                <Header />
+                <Menu />
                 <div className="content-wrapper">
                     {/* Content Header (Page header) */}
                     <div className="content-header">
@@ -575,6 +581,7 @@ export default class Dashboard extends Component {
                     </section>
                     {/* /.content */}
                 </div>
+                <Footer />
             </div>
 
         )

@@ -28,28 +28,21 @@ export default class Menu extends Component {
                                 {/* Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library */}
                                 <li className="nav-item has-treeview menu-open">
-                                    <a href="#" className="nav-link active">
+                                    <a href="./dashboard" className="nav-link active">
                                         <i className="nav-icon fas fa-tachometer-alt" />
                                         <p>
                                             Dashboard
                                             <i className="right fas fa-angle-left" />
                                         </p>
                                     </a>
-                                    <ul className="nav nav-treeview">
-                                        <li className="nav-item">
-                                            <Link to="/" className="nav-link">
-                                                <i className="far fa-circle nav-icon" />
-                                                <p>Dashboard</p>
-                                            </Link>
-                                        </li>
-                                    </ul>
+                                    
                                 </li>
                                 <li className="nav-header">CADASTROS</li>
                                 <li className="nav-item has-treeview">
-                                    <a href="#" className="nav-link">
+                                    <a href="/incluir-receita" className="nav-link">
                                         <i className="nav-icon far fa-plus-square" />
                                         <p>
-                                            Receitas
+                                            Nova Receita
                                             <i className="fas fa-angle-left right" />
                                         </p>
                                     </a>
@@ -69,10 +62,10 @@ export default class Menu extends Component {
                                     </ul>
                                 </li>
                                 <li className="nav-item has-treeview">
-                                    <a href="#" className="nav-link">
+                                    <a href="/incluir-despesa" className="nav-link">
                                         <i className="nav-icon far fa-minus-square" />
                                         <p>
-                                            Despesas
+                                            Nova Despesa
                                             <i className="fas fa-angle-left right" />
                                         </p>
                                     </a>
@@ -91,6 +84,33 @@ export default class Menu extends Component {
                                         </li>
                                     </ul>
                                 </li>
+
+
+                                <li className="nav-header">LISTAGEM</li>
+                                <li className="nav-item has-treeview">
+                                    <a href="/lista-receitas" className="nav-link">
+                                        <i className="nav-icon far fa-plus-square" />
+                                        <p>
+                                            Ver Receitas
+                                            <i className="fas fa-angle-left right" />
+                                        </p>
+                                    </a>
+                                </li>
+                                <li className="nav-item has-treeview">
+                                    <a href="/lista-despesas" className="nav-link">
+                                        <i className="nav-icon far fa-plus-square" />
+                                        <p>
+                                            Ver Despesas
+                                            <i className="fas fa-angle-left right" />
+                                        </p>
+                                    </a>
+                                    
+                                </li>
+                                
+
+
+
+
                             </ul>
                         </nav>
                         {/* /.sidebar-menu */}

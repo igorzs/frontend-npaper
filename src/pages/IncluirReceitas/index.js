@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-
+import Header from "../../components/header";
+import Menu from "../../components/menu";
+import Footer from "../../components/footer";
+import './styles.css';
 
 export default class IncluirReceitas extends Component {
     constructor(props) {
@@ -34,12 +37,13 @@ export default class IncluirReceitas extends Component {
     render() {
         const { redirect } = this.state;
         if (redirect) {
-            return <Redirect to="/listareceitas" />;
+            return <Redirect to="/lista-receitas" />;
         } else {
             return (
 
                 <div>
-
+                    <Header />
+                    <Menu />
                     <div className="content-wrapper" style={{ minHeight: '1345.6px' }}>
                         <section className="content-header">
                             <div className="container-fluid">
@@ -60,7 +64,7 @@ export default class IncluirReceitas extends Component {
                                             </div>
 
 
-                                            <form onSubmit={this.handleSubmit}>
+                                            <form className="form-receita" onSubmit={this.handleSubmit}>
                                                 <fieldset>
                                                     <legend>Incluir Receita</legend>
                                                     <div className="receita-insert">
@@ -142,7 +146,7 @@ export default class IncluirReceitas extends Component {
                         </section>
                     </div>
 
-
+                    <Footer />
                 </div>
             );
         }

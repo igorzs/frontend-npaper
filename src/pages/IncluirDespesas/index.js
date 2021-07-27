@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import Header from "../../components/header";
+import Menu from "../../components/menu";
+import Footer from "../../components/footer";
+import './styles.css';
 
 
 export default class IncluirDespesas extends Component {
@@ -34,12 +38,13 @@ export default class IncluirDespesas extends Component {
     render() {
         const { redirect } = this.state;
         if (redirect) {
-            return <Redirect to="/listadespesas" />;
+            return <Redirect to="/lista-despesas" />;
         } else {
             return (
 
                 <div>
-
+                    <Header />
+                    <Menu />
                     <div className="content-wrapper" style={{ minHeight: '1345.6px' }}>
                         <section className="content-header">
                             <div className="container-fluid">
@@ -60,7 +65,7 @@ export default class IncluirDespesas extends Component {
                                             </div>
 
 
-                                            <form onSubmit={this.handleSubmit}>
+                                            <form className="form-despesa" onSubmit={this.handleSubmit}>
                                                 <fieldset>
                                                     <legend>Incluir Despesa</legend>
                                                     <div className="despesa-insert">
@@ -142,13 +147,13 @@ export default class IncluirDespesas extends Component {
                         </section>
                     </div>
 
-
+                    <Footer />
                 </div>
             );
         }
     }
 
-    
+
 
     handleInputChange = event => {
         const target = event.target;
