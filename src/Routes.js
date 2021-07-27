@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Dashboard from "./Pages/Dashboard";
-import ListaReceitas from './Pages/ListaReceitas';
-import IncluirReceitas from './Pages/IncluirReceitas';
+import Dashboard from "./pages/Dashboard";
+import ListaReceitas from './pages/receita/ListaReceitas';
+import IncluirReceitas from './pages/receita/IncluirReceitas';
+import ListaDespesas from './pages/despesa/ListaDespesas';
+import IncluirDespesas from './pages/despesa/IncluirDespesas';
 
 
 export default class Routes extends Component {
@@ -17,6 +19,12 @@ export default class Routes extends Component {
                 </Route>
                 <Route exact path="/listareceitas">
                     <ListaReceitas />
+                </Route>
+                <Route exact path="/incluirdespesas">
+                    <IncluirDespesas />
+                </Route>
+                <Route exact path="/listadespesas">
+                    <ListaDespesas />
                 </Route>
             </Switch>
         )

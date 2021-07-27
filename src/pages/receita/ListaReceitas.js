@@ -13,7 +13,7 @@ export default class ListaReceitas extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3001/home/receita`)
+    fetch(`http://localhost:3001/api/receita`)
       .then(receita =>
         receita.json().then(receita => this.setState({ receita }))
       )
@@ -61,8 +61,8 @@ export default class ListaReceitas extends Component {
                             <td>{item.descricao}</td>
                             <td>R$ {item.valor}</td>
                             <td>{item.data}</td>
-                            <td>{ String(item.recebido) }</td>
-                            <td><Link to={`/receita/${item.id}`}> Acessar </Link></td>
+                            <td>{ String(item.situacao) }</td>
+                            <td><Link to={`/lancamento/${item.id}`}> Acessar </Link></td>
                           </tr>
                         ))}
                       </tbody>

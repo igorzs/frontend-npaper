@@ -1,9 +1,9 @@
 import React from "react";
 //import logo from './logo.png';
 import './App.css';
-import Header from "./Header";
-import Menu from "./Menu";
-import Footer from "./Footer";
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+import Footer from "./components/Footer";
 import Routes from "./Routes";
 import { BrowserRouter } from 'react-router-dom';
 
