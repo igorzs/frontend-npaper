@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import './styles.css';
 import api from '../../services/api';
 import imgHome from '../../assets/home-npaper.png';
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { Alert } from '@material-ui/lab';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment, IconButton } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
-export default function RegisterLogin() {
+export default function RegisterLogin(props) {
+    const { history } = props;
     const [nome, setName] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setPass] = useState('');
-
-    const [emailLogin, setEmailLogin] = useState('');
-    const [senhaLogin, setPassLogin] = useState('');
 
     const [alert, showAlert] = useState(false);
     const [alertContent, setAlertContent] = useState('');
@@ -29,6 +27,34 @@ export default function RegisterLogin() {
     const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
     async function handleLogin(e) {
+        e.preventDefault();
+
+        const data = {
+            email,
+            senha,
+        };
+
+        try {
+            const response = await api.post('authenticate', data)
+            const token = response.data;
+
+            if (response.status === 200) {
+                localStorage.setItem('@npaper/token', response.data);
+                setAlertContent('Login feito com sucesso!');
+                setTypeAlert('success');
+                showAlert(true);
+                history.push('/');
+            } else {
+                setAlertContent('Ocorreu um erro!');
+                setTypeAlert('error');
+                showAlert(true);
+            }
+
+        } catch (err) {
+            setAlertContent('Erro ao efetuar o login, revise os campos e tente novamente!');
+            setTypeAlert('error');
+            showAlert(true);
+        }
 
     }
 
@@ -45,9 +71,7 @@ export default function RegisterLogin() {
             await api.post('cadastro', data)
                 .then(response => {
 
-                    console.log(response);
-
-                    if (response.status == 200) {
+                    if (response.status === 200) {
                         setAlertContent('Cadastro feito com sucesso!');
                         setTypeAlert('success');
                         showAlert(true);
@@ -58,7 +82,6 @@ export default function RegisterLogin() {
                     }
                 })
 
-            //history.push('/profile');
         } catch (err) {
             setAlertContent('Erro ao efetuar o cadastro, revise os campos e tente novamente!');
             setTypeAlert('error');
@@ -116,14 +139,14 @@ export default function RegisterLogin() {
             <div className="login-content">
                 <form className="form-login" onSubmit={handleLogin}>
                     <TextField id="standard-basic" label="Seu E-mail"
-                        value={emailLogin}
-                    onChange={e => setEmailLogin(e.target.value)}
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                     />
                     <br />
                     <TextField id="standard-basic" label="Senha"
                         type={showPassword ? "text" : "password"}
-                        value={senhaLogin}
-                        onChange={e => setPassLogin(e.target.value)}
+                        value={senha}
+                        onChange={e => setPass(e.target.value)}
                         InputProps={{ // <-- This is where the toggle button is added.
                             endAdornment: (
                                 <InputAdornment position="end">
@@ -150,11 +173,16 @@ export default function RegisterLogin() {
 
     function showFormRegister() {
         setForm('register');
+        setName('');
+        setEmail('');
+        setPass('');
         showAlert(false);
     }
 
     function showFormLogin() {
         setForm('login');
+        setEmail('');
+        setPass('');
         showAlert(false);
     }
 
@@ -181,14 +209,14 @@ export default function RegisterLogin() {
 
                     <div className="change-form" >
                         <div>
-                            <button className={formToShow == "login" ? "bt-active" : "bt-disabled"} onClick={showFormLogin}>Entrar</button>
+                            <button className={formToShow === "login" ? "bt-active" : "bt-disabled"} onClick={showFormLogin}>Entrar</button>
                         </div>
                         <div>
-                            <button className={formToShow == "register" ? "bt-active" : "bt-disabled"} onClick={showFormRegister}>Cadastrar</button>
+                            <button className={formToShow === "register" ? "bt-active" : "bt-disabled"} onClick={showFormRegister}>Cadastrar</button>
                         </div>
                     </div>
 
-                    {formToShow == "login" ? getFormLogin() : getFormRegister()}
+                    {formToShow === "login" ? getFormLogin() : getFormRegister()}
 
                     {alert ? <Alert variant="filled" severity={typeAlert}>{alertContent}</Alert> : <></>}
 
