@@ -160,7 +160,6 @@ export default class IncluirReceitas extends Component {
         this.setState(prevState => ({
             receita: { ...prevState.receita, [name]: value }
         }));
-        console.log(value);
     };
 
     handleSubmit = event => {

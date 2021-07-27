@@ -163,7 +163,6 @@ export default class IncluirDespesas extends Component {
         this.setState(prevState => ({
             despesa: { ...prevState.despesa, [name]: value }
         }));
-        console.log(value);
     };
 
     handleSubmit = event => {

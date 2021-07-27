@@ -44,7 +44,7 @@ export default function RegisterLogin(props) {
                 setAlertContent('Login feito com sucesso!');
                 setTypeAlert('success');
                 showAlert(true);
-                history.push('/');
+                window.location.href="/";
             } else {
                 setAlertContent('Ocorreu um erro!');
                 setTypeAlert('error');

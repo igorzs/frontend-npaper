@@ -26,23 +26,24 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Switch>
-                <Route path="/dashboard" component={DashboardInicial} />
-                <Route path="/lista-despesas" component={ListaDespesas} />
-                <Route path="/incluir-despesa" component={IncluirDespesas} />
-                <Route path="/incluir-receita" component={IncluirReceitas} />
-                <Route path="/lista-receitas" component={ListaReceitas} />
-                
-                {isAuthenticated() ? (
-                    <PrivateRoute path="/" component={() => <h1>App</h1>} />
-                ) : (
+            {isAuthenticated() ? (
+                <Switch>
+                    <Route path="/lista-despesas" component={ListaDespesas} />
+                    <Route path="/incluir-despesa" component={IncluirDespesas} />
+                    <Route path="/incluir-receita" component={IncluirReceitas} />
+                    <Route path="/lista-receitas" component={ListaReceitas} />
+                    <PrivateRoute path="/" component={DashboardInicial} />
+                </Switch>
+            ) : (
+                <Switch>
+                    <Route path="/lista-despesas" component={ListaDespesas} />
+                    <Route path="/incluir-despesa" component={IncluirDespesas} />
+                    <Route path="/incluir-receita" component={IncluirReceitas} />
+                    <Route path="/lista-receitas" component={ListaReceitas} />
                     <Route path="/" component={CadastroLogin} />
-                )
-                }
-
-               
-
-            </Switch>
+                </Switch>
+            )
+            }
         </BrowserRouter>
     );
 }
