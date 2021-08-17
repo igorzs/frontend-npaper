@@ -39,22 +39,22 @@ export default class Menu extends Component {
                                 </li>
                                 <li className="nav-header">CADASTROS</li>
                                 <li className="nav-item has-treeview">
-                                    <a href="/incluir-receita" className="nav-link">
+                                    <a href="#" className="nav-link">
                                         <i className="nav-icon far fa-plus-square" />
                                         <p>
-                                            Nova Receita
+                                            Receitas
                                             <i className="fas fa-angle-left right" />
                                         </p>
                                     </a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                            <Link to="/listareceitas" className="nav-link">
+                                            <Link to="/lista-receitas" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
                                                 <p>Listar</p>
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="/incluirreceitas" className="nav-link">
+                                            <Link to="/incluir-receita" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
                                                 <p>Incluir</p>
                                             </Link>
@@ -65,51 +65,25 @@ export default class Menu extends Component {
                                     <a href="/incluir-despesa" className="nav-link">
                                         <i className="nav-icon far fa-minus-square" />
                                         <p>
-                                            Nova Despesa
+                                            Despesas
                                             <i className="fas fa-angle-left right" />
                                         </p>
                                     </a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                            <Link to="/listadespesas" className="nav-link">
+                                            <Link to="/lista-despesas" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
                                                 <p>Listar</p>
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="/incluirdespesas" className="nav-link">
+                                            <Link to="/incluir-despesa" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
                                                 <p>Incluir</p>
                                             </Link>
                                         </li>
                                     </ul>
                                 </li>
-
-
-                                <li className="nav-header">LISTAGEM</li>
-                                <li className="nav-item has-treeview">
-                                    <a href="/lista-receitas" className="nav-link">
-                                        <i className="nav-icon far fa-plus-square" />
-                                        <p>
-                                            Ver Receitas
-                                            <i className="fas fa-angle-left right" />
-                                        </p>
-                                    </a>
-                                </li>
-                                <li className="nav-item has-treeview">
-                                    <a href="/lista-despesas" className="nav-link">
-                                        <i className="nav-icon far fa-plus-square" />
-                                        <p>
-                                            Ver Despesas
-                                            <i className="fas fa-angle-left right" />
-                                        </p>
-                                    </a>
-                                    
-                                </li>
-                                
-
-
-
 
                             </ul>
                         </nav>

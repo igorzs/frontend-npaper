@@ -43,40 +43,93 @@ export default class ListaReceitas extends Component {
                     <section className="content">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-md-12">
-                                    <div className="card">
-                                        <div className="card-header">
-                                            <h3 className="card-title">Listagem de Receitas</h3>
+                                <section class="col-lg-3">
+                                    <div className="row">
+                                        <div className="col-lg-12 col-6">
+                                            <div className="small-box bg-success">
+                                                <div className="inner">
+                                                    <h3><sup style={{fontSize: 20}}>R$</sup>53,98</h3>
+                                                    <p>Receitas Pendentes</p>
+                                                </div>
+                                                <div className="icon">
+                                                    <i className="fas fa-arrow-circle-up" />
+                                                </div>
+                                                
+                                            </div>
                                         </div>
-                                        <div className="card-body">
-                                            <table className="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th style={{ width: 10 }}>ID</th>
-                                                        <th>Descrição</th>
-                                                        <th>Valor (R$)</th>
-                                                        <th>Data</th>
-                                                        <th>Recebido</th>
-                                                        <th>Ação</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
 
-                                                    {this.state.receita.map((item, index) => (
+                                        <div className="col-lg-12 col-6">
+                                            <div className="small-box bg-success">
+                                                <div className="inner">
+                                                    <h3><sup style={{fontSize: 20}}>R$</sup>1.200,00</h3>
+                                                    <p>Receitas Recebidas</p>
+                                                </div>
+                                                <div className="icon">
+                                                    <i className="fas fa-arrow-circle-down" />
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div className="col-lg-12 col-6">
+                                            <div className="small-box bg-success">
+                                                <div className="inner">
+                                                    <h3><sup style={{fontSize: 20}}>R$</sup>1.200,00</h3>
+                                                    <p>Total</p>
+                                                </div>
+                                                <div className="icon">
+                                                    <i className="fas fa-dollar-sign" />
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </section>
+                                <section class="col-lg-9">
+
+                                    <div className="col-md-12">
+                                        
+                                    </div>
+
+                                    <div className="col-md-12">
+                                        <div className="card">
+                                            <div className="card-header">
+                                                <h3 className="card-title">Listagem de Receitas</h3>
+                                            </div>
+                                            <div className="card-body">
+                                                <table className="table table-bordered">
+                                                    <thead>
                                                         <tr>
-                                                            <td>{item.id}</td>
-                                                            <td>{item.descricao}</td>
-                                                            <td>R$ {item.valor}</td>
-                                                            <td>{item.data}</td>
-                                                            <td>{String(item.situacao)}</td>
-                                                            <td><Link to={`/lancamento/${item.id}`}> Acessar </Link></td>
+                                                            <th style={{ width: 10 }}>ID</th>
+                                                            <th>Descrição</th>
+                                                            <th>Valor (R$)</th>
+                                                            <th>Data</th>
+                                                            <th>Recebido</th>
+                                                            <th>Ação</th>
                                                         </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        {this.state.receita.map((item, index) => (
+                                                            <tr>
+                                                                <td>{item.id}</td>
+                                                                <td>{item.descricao}</td>
+                                                                <td>R$ {item.valor}</td>
+                                                                <td>{item.data}</td>
+                                                                <td>{String(item.situacao)}</td>
+                                                                <td><Link to={`/lancamento/${item.id}`}> Acessar </Link></td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </section>
+
+                                
                             </div>
                         </div>
                     </section>

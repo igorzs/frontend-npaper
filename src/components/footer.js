@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ConfigAdminLTEJS from "./config-adminlte-js";
 
 export default class Footer extends Component {
     render() {
@@ -11,6 +12,8 @@ export default class Footer extends Component {
                         <b>Version</b> 3.0.0
                     </div>
                 </footer>
+                <ConfigAdminLTEJS />
+
             </div>
 
         )

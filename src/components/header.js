@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import ConfigAdminLTE from "./config-adminlte";
+import ConfigAdminLTECSS from "./config-adminlte-css";
 
 export default class Header extends Component {
     render() {
         return (
             <div>
-                <ConfigAdminLTE />
+                <ConfigAdminLTECSS />
                 <nav className="main-header navbar navbar-expand navbar-white navbar-light">
                     {/* Left navbar links */}
                     <ul className="navbar-nav">
