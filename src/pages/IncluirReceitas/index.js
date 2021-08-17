@@ -60,33 +60,28 @@ export default class IncluirReceitas extends Component {
                                     <div className="col-md-12">
                                         <div className="card card-primary">
                                             <div className="card-header">
-                                                <h3 className="card-title">Incluir Receita</h3>
+                                                <h3 className="card-title">Incluir</h3>
                                             </div>
 
-                                            <form className="form-receita" onSubmit={this.handleSubmit}>
-                                                <div class="card-body">
 
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="descricao">Descrição</label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="form-control"
-                                                                    id="descricao"
-                                                                    name="descricao"
-                                                                    placeholder="Descrição"
-                                                                    minLength="3"
-                                                                    maxLength="100"
-                                                                    required
-                                                                    value={this.state.receita.descricao}
-                                                                    onChange={this.handleInputChange}
-                                                                />
-                                                            </div>
-                                                        </div>    
+                                            <form className="form-receita" onSubmit={this.handleSubmit}>
+                                                <fieldset>
+                                                    <legend>Incluir Receita</legend>
+                                                    <div className="receita-insert">
+                                                        <label htmlFor="nome">Descrição </label>
+                                                        <br />
+                                                        <input
+                                                            type="text"
+                                                            id="descricao"
+                                                            name="descricao"
+                                                            placeholder="Descrição"
+                                                            minLength="3"
+                                                            maxLength="100"
+                                                            required
+                                                            value={this.state.receita.descricao}
+                                                            onChange={this.handleInputChange}
+                                                        />
                                                     </div>
-                                                
-                                                    
                                                     <div className="receita-insert">
                                                         <label htmlFor="valor">Valor </label>
                                                         <br />
@@ -141,7 +136,7 @@ export default class IncluirReceitas extends Component {
                                                     <button type="submit" className="btn btn-primary">
                                                         Incluir
                                                     </button>
-                                                </div>
+                                                </fieldset>
                                             </form>
 
                                         </div>
