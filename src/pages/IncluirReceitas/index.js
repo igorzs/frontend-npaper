@@ -85,67 +85,78 @@ export default class IncluirReceitas extends Component {
                                                             </div>
                                                         </div> 
                                                     </div>
+
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="descricao">Valor</label>
+                                                                <input
+                                                                    type="text"
+                                                                    id="valor"
+                                                                    name="valor"
+                                                                    placeholder="Valor"
+                                                                    class="form-control"
+                                                                    required
+                                                                    value={this.state.receita.valor}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                            </div>
+                                                        </div> 
+
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="data">Data</label>
+                                                                <input
+                                                                    type="date"
+                                                                    id="data"
+                                                                    name="data"
+                                                                    class="form-control"
+                                                                    placeholder="Data"
+                                                                    required
+                                                                    value={this.state.receita.dataNascimento}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                            </div>
+                                                        </div> 
+
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                            <label for="data">Situação</label><br />
+                                                            <label>
+                                                                <input
+                                                                    type="radio"
+                                                                    name="situacao"
+                                                                    value="true"
+                                                                    //checked={this.state.receita.ativo === "true"}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                                Recebido
+                                                            </label>
+                                                            <label>
+                                                                <input
+                                                                    type="radio"
+                                                                    value="false"
+                                                                    name="situacao"
+                                                                    //checked={this.state.receita.ativo === "false"}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                                Não Recebido
+                                                            </label>
+                                                            </div>
+                                                        </div> 
+                                                    </div>
                                                     
                                                 </div>
                                                 
-                                                <fieldset>
-                                                    <legend>Incluir Receita</legend>
                                                     
-                                                    <div className="receita-insert">
-                                                        <label htmlFor="valor">Valor </label>
-                                                        <br />
-                                                        <input
-                                                            type="text"
-                                                            id="valor"
-                                                            name="valor"
-                                                            placeholder="Valor"
-                                                            required
-                                                            value={this.state.receita.valor}
-                                                            onChange={this.handleInputChange}
-                                                        />
-                                                    </div>
-                                                    <div className="receita-insert">
-                                                        <label htmlFor="data">Data</label>
-                                                        <br />
-                                                        <input
-                                                            type="date"
-                                                            id="data"
-                                                            name="data"
-                                                            placeholder="Data"
-                                                            required
-                                                            value={this.state.receita.dataNascimento}
-                                                            onChange={this.handleInputChange}
-                                                        />
-                                                    </div>
-
-                                                    <div className="receita-insert">
-                                                        <label>
-                                                            <input
-                                                                type="radio"
-                                                                name="situacao"
-                                                                value="true"
-                                                                //checked={this.state.receita.ativo === "true"}
-                                                                onChange={this.handleInputChange}
-                                                            />
-                                                            Recebido
-                                                        </label>
-                                                        <label>
-                                                            <input
-                                                                type="radio"
-                                                                value="false"
-                                                                name="situacao"
-                                                                //checked={this.state.receita.ativo === "false"}
-                                                                onChange={this.handleInputChange}
-                                                            />
-                                                            Não Recebido
-                                                        </label>
-                                                    </div>
+                                                    
+                                                
 
 
                                                     <button type="submit" className="btn btn-primary">
                                                         Incluir
                                                     </button>
-                                                </fieldset>
+                                                
                                             </form>
 
                                         </div>
