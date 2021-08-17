@@ -12,6 +12,7 @@ export default class Footer extends Component {
                 $.widget.bridge('uibutton', $.ui.button)
                 </script>
                 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="plugins/select2/js/select2.full.min.js"></script>
                 <script src="plugins/chart.js/Chart.min.js"></script>
                 <script src="plugins/sparklines/sparkline.js"></script>
                 <script src="plugins/jqvmap/jquery.vmap.min.js"></script>

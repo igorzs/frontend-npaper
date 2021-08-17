@@ -69,7 +69,7 @@ export default class IncluirReceitas extends Component {
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <label for="descricao">Email address</label>
+                                                                <label for="descricao">Descrição</label>
                                                                 <input
                                                                     type="text"
                                                                     id="descricao"
@@ -129,8 +129,8 @@ export default class IncluirReceitas extends Component {
                                                                     value="true"
                                                                     //checked={this.state.receita.ativo === "true"}
                                                                     onChange={this.handleInputChange}
-                                                                />
-                                                                Recebido
+                                                                /> 
+                                                                 Recebido &nbsp;   &nbsp; 
                                                             </label>
                                                             <label>
                                                                 <input
@@ -139,26 +139,20 @@ export default class IncluirReceitas extends Component {
                                                                     name="situacao"
                                                                     //checked={this.state.receita.ativo === "false"}
                                                                     onChange={this.handleInputChange}
-                                                                />
-                                                                Não Recebido
+                                                                /> 
+                                                                 Não Recebido
                                                             </label>
                                                             </div>
                                                         </div> 
                                                     </div>
-                                                    
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <button type="submit" className="btn btn-primary">Incluir</button>
+                                                        </div>
+                                                    </div>    
                                                 </div>
-                                                
-                                                    
-                                                    
-                                                
-
-
-                                                    <button type="submit" className="btn btn-primary">
-                                                        Incluir
-                                                    </button>
-                                                
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
