@@ -24,6 +24,24 @@ export default class ListaReceitas extends Component {
             .catch(erro => this.setState({ erro }));
     }
 
+    renderizaSoma(status) { 
+        if (status==="pendente"){ 
+            const arrayDeValores = this.state.receita?.filter((item) => {if(!item.situacao) return true }).map((item)=>item.valor)
+            const somaReceitasPendentes=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
+            return somaReceitasPendentes
+        }
+        if (status==="recebido"){ 
+            const arrayDeValores = this.state.receita?.filter((item) => {if(item.situacao) return true }).map((item)=>item.valor)
+            const somaReceitasRecebidas=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
+            return somaReceitasRecebidas
+        }
+        if (status==="total"){ 
+            const arrayDeValores = this.state.receita?.map((item)=>item.valor)
+            const somaReceitasTotal=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
+            return somaReceitasTotal
+        }
+    }
+
     render() {
         const { receita } = this.state;
         return (
@@ -43,40 +61,118 @@ export default class ListaReceitas extends Component {
                     <section className="content">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-md-12">
-                                    <div className="card">
-                                        <div className="card-header">
-                                            <h3 className="card-title">Listagem de Receitas</h3>
-                                        </div>
-                                        <div className="card-body">
-                                            <table className="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th style={{ width: 10 }}>ID</th>
-                                                        <th>Descrição</th>
-                                                        <th>Valor (R$)</th>
-                                                        <th>Data</th>
-                                                        <th>Recebido</th>
-                                                        <th>Ação</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                <section class="col-lg-3">
+                                    <div className="row">
+                                        <div className="col-lg-12 col-6">
+                                            <div className="small-box bg-success">
+                                                <div className="inner">
+                                                    <h3><sup style={{ fontSize: 20 }}>R$</sup>{this.renderizaSoma("pendente")}</h3>
+                                                    <p>Receitas Pendentes</p>
+                                                </div>
+                                                <div className="icon">
+                                                    <i className="fas fa-arrow-circle-up" />
+                                                </div>
 
-                                                    {this.state.receita.map((item, index) => (
-                                                        <tr>
-                                                            <td>{item.id}</td>
-                                                            <td>{item.descricao}</td>
-                                                            <td>R$ {item.valor}</td>
-                                                            <td>{item.data}</td>
-                                                            <td>{String(item.situacao)}</td>
-                                                            <td><Link to={`/lancamento/${item.id}`}> Acessar </Link></td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-lg-12 col-6">
+                                            <div className="small-box bg-success">
+                                                <div className="inner">
+                                                    <h3><sup style={{ fontSize: 20 }}>R$</sup>{this.renderizaSoma("recebido")}</h3>
+                                                    <p>Receitas Recebidas</p>
+                                                </div>
+                                                <div className="icon">
+                                                    <i className="fas fa-arrow-circle-down" />
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div className="col-lg-12 col-6">
+                                            <div className="small-box bg-success">
+                                                <div className="inner">
+                                                    <h3><sup style={{ fontSize: 20 }}>R$</sup>{this.renderizaSoma("total")}</h3>
+                                                    <p>Total</p>
+                                                </div>
+                                                <div className="icon">
+                                                    <i className="fas fa-dollar-sign" />
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </section>
+                                <section class="col-lg-9">
+
+                                    <div className="col-md-12">
+                                        <div className="row">
+                                            <div className="col-lg-12 col-6">
+                                                <Link to="/incluir-receita" type="button" class="btn btn-success btn-sm"><i class="nav-icon far fa-plus-square"></i> Adicionar Receita </Link> <br /> <br />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+
+                                    <div className="col-md-12">
+                                        <div className="card">
+                                            <div className="card-header">
+                                                <h3 className="card-title">Listagem de Receitas</h3>
+                                            </div>
+                                            <div className="card-body">
+                                                <div className="row">
+                                                    <div className="col-12">
+                                                    <div className="form-group">
+                                                        <select className="form-control select2 select2-success" data-dropdown-css-class="select2-success" style={{width: '100%'}}>
+                                                            <option selected="selected">Selecione o Mês</option>
+                                                            <option value="01">Janeiro</option>
+                                                            <option value="02">Fevereiro</option>
+                                                            <option value="03">Março</option>
+                                                            <option value="04">Abril</option>
+                                                            <option value="05">Maio</option>
+                                                            <option value="06">Junho</option>
+                                                            <option value="07">Julho</option>
+                                                            <option value="08">Agosto</option>
+                                                            <option value="09">Setembro</option>
+                                                            <option value="10">Outubro</option>
+                                                            <option value="11">Novembro</option>
+                                                            <option value="12">Dezembro</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                                <table className="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style={{ width: 10 }}>ID</th>
+                                                            <th>Descrição</th>
+                                                            <th>Valor (R$)</th>
+                                                            <th>Data</th>
+                                                            <th>Recebido</th>
+                                                            <th>Ações</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {this.state.receita.map((item, index) => (
+                                                            <tr>
+                                                                <td>{item.id}</td>
+                                                                <td>{item.descricao}</td>
+                                                                <td>R$ {item.valor}</td>
+                                                                <td>{item.data}</td>
+                                                                <td>{String(item.situacao)}</td>
+                                                                <td><Link to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link></td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
                             </div>
                         </div>
                     </section>

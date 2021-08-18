@@ -60,85 +60,99 @@ export default class IncluirReceitas extends Component {
                                     <div className="col-md-12">
                                         <div className="card card-primary">
                                             <div className="card-header">
-                                                <h3 className="card-title">Incluir</h3>
+                                                <h3 className="card-title">Incluir Receita</h3>
                                             </div>
 
-
                                             <form className="form-receita" onSubmit={this.handleSubmit}>
-                                                <fieldset>
-                                                    <legend>Incluir Receita</legend>
-                                                    <div className="receita-insert">
-                                                        <label htmlFor="nome">Descrição </label>
-                                                        <br />
-                                                        <input
-                                                            type="text"
-                                                            id="descricao"
-                                                            name="descricao"
-                                                            placeholder="Descrição"
-                                                            minLength="3"
-                                                            maxLength="100"
-                                                            required
-                                                            value={this.state.receita.descricao}
-                                                            onChange={this.handleInputChange}
-                                                        />
-                                                    </div>
-                                                    <div className="receita-insert">
-                                                        <label htmlFor="valor">Valor </label>
-                                                        <br />
-                                                        <input
-                                                            type="text"
-                                                            id="valor"
-                                                            name="valor"
-                                                            placeholder="Valor"
-                                                            required
-                                                            value={this.state.receita.valor}
-                                                            onChange={this.handleInputChange}
-                                                        />
-                                                    </div>
-                                                    <div className="receita-insert">
-                                                        <label htmlFor="data">Data</label>
-                                                        <br />
-                                                        <input
-                                                            type="date"
-                                                            id="data"
-                                                            name="data"
-                                                            placeholder="Data"
-                                                            required
-                                                            value={this.state.receita.dataNascimento}
-                                                            onChange={this.handleInputChange}
-                                                        />
+
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="descricao">Descrição</label>
+                                                                <input
+                                                                    type="text"
+                                                                    id="descricao"
+                                                                    name="descricao"
+                                                                    placeholder="Descrição"
+                                                                    minLength="3"
+                                                                    maxLength="100"
+                                                                    class="form-control"
+                                                                    required
+                                                                    value={this.state.receita.descricao}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                            </div>
+                                                        </div> 
                                                     </div>
 
-                                                    <div className="receita-insert">
-                                                        <label>
-                                                            <input
-                                                                type="radio"
-                                                                name="situacao"
-                                                                value="true"
-                                                                //checked={this.state.receita.ativo === "true"}
-                                                                onChange={this.handleInputChange}
-                                                            />
-                                                            Recebido
-                                                        </label>
-                                                        <label>
-                                                            <input
-                                                                type="radio"
-                                                                value="false"
-                                                                name="situacao"
-                                                                //checked={this.state.receita.ativo === "false"}
-                                                                onChange={this.handleInputChange}
-                                                            />
-                                                            Não Recebido
-                                                        </label>
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="descricao">Valor</label>
+                                                                <input
+                                                                    type="text"
+                                                                    id="valor"
+                                                                    name="valor"
+                                                                    placeholder="Valor"
+                                                                    class="form-control"
+                                                                    required
+                                                                    value={this.state.receita.valor}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                            </div>
+                                                        </div> 
+
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="data">Data</label>
+                                                                <input
+                                                                    type="date"
+                                                                    id="data"
+                                                                    name="data"
+                                                                    class="form-control"
+                                                                    placeholder="Data"
+                                                                    required
+                                                                    value={this.state.receita.dataNascimento}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                            </div>
+                                                        </div> 
+
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                            <label for="data">Situação</label><br />
+                                                            <label>
+                                                                <input
+                                                                    type="radio"
+                                                                    name="situacao"
+                                                                    value="true"
+                                                                    //checked={this.state.receita.ativo === "true"}
+                                                                    onChange={this.handleInputChange}
+                                                                /> 
+                                                                 Recebido &nbsp;   &nbsp; 
+                                                            </label>
+                                                            <label>
+                                                                <input
+                                                                    type="radio"
+                                                                    value="false"
+                                                                    name="situacao"
+                                                                    //checked={this.state.receita.ativo === "false"}
+                                                                    onChange={this.handleInputChange}
+                                                                /> 
+                                                                 Não Recebido
+                                                            </label>
+                                                            </div>
+                                                        </div> 
                                                     </div>
 
-
-                                                    <button type="submit" className="btn btn-primary">
-                                                        Incluir
-                                                    </button>
-                                                </fieldset>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <button type="submit" className="btn btn-primary">Incluir</button>
+                                                        </div>
+                                                    </div>    
+                                                </div>
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
