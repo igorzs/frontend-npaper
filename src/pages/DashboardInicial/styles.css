@@ -1,0 +1,63 @@
+.result-balance{
+    margin-top: 35px;
+}
+
+.link-chart{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.tit-balance{
+    font-weight: bold;
+    color:#343a40
+}
+
+.div-BRL{
+    text-align: center;
+}
+
+.revenues-value p{
+    background-color: #13ce66;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 30px;
+}
+
+.expense-value p{
+    background-color:#e02810;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 30px;
+}
+
+.balance-value p{
+    background-color:#0e699a;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 30px;
+}
+
+.balance-result{
+    background-color:#0e699a !important;
+}
+
+.expensive-result{
+    background-color:#e02810 !important;
+}
+
+.revenue-result{
+    background-color: #13ce66;
+}
+
+.balance-result h3, .balance-result p, .expensive-result h3, .expensive-result p,
+.revenue-result h3, .revenue-result p{
+    color:#fff !important;
+}
+
+.balance-row p{
+    margin-top: 10px;
+}
+
+.balance-value{
+    border-top: 1px solid;
+}
