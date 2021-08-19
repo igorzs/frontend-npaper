@@ -42,10 +42,8 @@ export default class ListaDespesas extends Component {
         }
     }
 
-
     render() {
          
-       const { despesa } = this.state;
         return (
             <div>
                 <Header />

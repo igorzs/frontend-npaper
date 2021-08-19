@@ -24,26 +24,25 @@ export default class ListaReceitas extends Component {
             .catch(erro => this.setState({ erro }));
     }
 
-    renderizaSoma(status) { 
-        if (status==="pendente"){ 
-            const arrayDeValores = this.state.receita?.filter((item) => {if(!item.situacao) return true }).map((item)=>item.valor)
-            const somaReceitasPendentes=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    renderizaSoma(status) {
+        if (status === "pendente") {
+            const arrayDeValores = this.state.receita?.filter((item) => { if (!item.situacao) return true }).map((item) => item.valor)
+            const somaReceitasPendentes = arrayDeValores.length > 0 && arrayDeValores.reduce((total, valor) => total += valor).toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
             return somaReceitasPendentes
         }
-        if (status==="recebido"){ 
-            const arrayDeValores = this.state.receita?.filter((item) => {if(item.situacao) return true }).map((item)=>item.valor)
-            const somaReceitasRecebidas=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
+        if (status === "recebido") {
+            const arrayDeValores = this.state.receita?.filter((item) => { if (item.situacao) return true }).map((item) => item.valor)
+            const somaReceitasRecebidas = arrayDeValores.length > 0 && arrayDeValores.reduce((total, valor) => total += valor).toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
             return somaReceitasRecebidas
         }
-        if (status==="total"){ 
-            const arrayDeValores = this.state.receita?.map((item)=>item.valor)
-            const somaReceitasTotal=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
+        if (status === "total") {
+            const arrayDeValores = this.state.receita?.map((item) => item.valor)
+            const somaReceitasTotal = arrayDeValores.length > 0 && arrayDeValores.reduce((total, valor) => total += valor).toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
             return somaReceitasTotal
         }
     }
 
     render() {
-        const { receita } = this.state;
         return (
             <div>
                 <Header />
@@ -123,23 +122,23 @@ export default class ListaReceitas extends Component {
                                             <div className="card-body">
                                                 <div className="row">
                                                     <div className="col-12">
-                                                    <div className="form-group">
-                                                        <select className="form-control select2 select2-success" data-dropdown-css-class="select2-success" style={{width: '100%'}}>
-                                                            <option selected="selected">Selecione o Mês</option>
-                                                            <option value="01">Janeiro</option>
-                                                            <option value="02">Fevereiro</option>
-                                                            <option value="03">Março</option>
-                                                            <option value="04">Abril</option>
-                                                            <option value="05">Maio</option>
-                                                            <option value="06">Junho</option>
-                                                            <option value="07">Julho</option>
-                                                            <option value="08">Agosto</option>
-                                                            <option value="09">Setembro</option>
-                                                            <option value="10">Outubro</option>
-                                                            <option value="11">Novembro</option>
-                                                            <option value="12">Dezembro</option>
-                                                        </select>
-                                                    </div>
+                                                        <div className="form-group">
+                                                            <select className="form-control select2 select2-success" data-dropdown-css-class="select2-success" style={{ width: '100%' }}>
+                                                                <option selected="selected">Selecione o Mês</option>
+                                                                <option value="01">Janeiro</option>
+                                                                <option value="02">Fevereiro</option>
+                                                                <option value="03">Março</option>
+                                                                <option value="04">Abril</option>
+                                                                <option value="05">Maio</option>
+                                                                <option value="06">Junho</option>
+                                                                <option value="07">Julho</option>
+                                                                <option value="08">Agosto</option>
+                                                                <option value="09">Setembro</option>
+                                                                <option value="10">Outubro</option>
+                                                                <option value="11">Novembro</option>
+                                                                <option value="12">Dezembro</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -162,7 +161,10 @@ export default class ListaReceitas extends Component {
                                                                 <td>R$ {item.valor}</td>
                                                                 <td>{item.data}</td>
                                                                 <td>{String(item.situacao)}</td>
-                                                                <td><Link to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link></td>
+                                                                <td>
+                                                                    <Link to={`/editar-receita/${item.id}`}> <i class="nav-icon far fa-edit"></i> Editar </Link>
+                                                                    <Link to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link>
+                                                                </td>
                                                             </tr>
                                                         ))}
                                                     </tbody>

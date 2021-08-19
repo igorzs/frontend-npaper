@@ -8,6 +8,7 @@ import ListaDespesas from './pages/ListaDespesas';
 import ListaReceitas from './pages/ListaReceitas';
 import IncluirDespesas from './pages/IncluirDespesas';
 import IncluirReceitas from './pages/IncluirReceitas';
+import EditarReceita from './pages/EditarReceita';
 import { isAuthenticated } from './services/auth';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -32,6 +33,7 @@ const Routes = () => {
                     <Route path="/incluir-despesa" component={IncluirDespesas} />
                     <Route path="/incluir-receita" component={IncluirReceitas} />
                     <Route path="/lista-receitas" component={ListaReceitas} />
+                    <Route path="/editar-receita/:receitaId" component={EditarReceita} />
                     <PrivateRoute path="/" component={DashboardInicial} />
                 </Switch>
             ) : (
