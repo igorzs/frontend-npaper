@@ -26,7 +26,6 @@ export default class Footer extends Component {
                 <script src="dist-bkp/js/adminlte.js"></script>
                 <script src="dist-bkp/js/pages/dashboard.js"></script>
                 <script src="dist-bkp/js/demo.js"></script>
-
             </div >
 
         )
