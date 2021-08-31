@@ -121,7 +121,7 @@ export default class ListaReceitas extends Component {
                                             </div>
                                             <div className="card-body">
                                                 <div className="row">
-                                                    <div className="col-12">
+                                                    <div className="col-10">
                                                         <div className="form-group">
                                                             <select className="form-control select2 select2-success" data-dropdown-css-class="select2-success" style={{ width: '100%' }}>
                                                                 <option selected="selected">Selecione o Mês</option>
@@ -139,6 +139,9 @@ export default class ListaReceitas extends Component {
                                                                 <option value="12">Dezembro</option>
                                                             </select>
                                                         </div>
+                                                    </div>
+                                                    <div className="col-2">
+                                                    <Link to="/incluir-receita/05" type="button" class="btn btn-success btn-sm"><i class="nav-icon far fa-search-dollar"></i> Buscar </Link>
                                                     </div>
                                                 </div>
 
@@ -158,9 +161,40 @@ export default class ListaReceitas extends Component {
                                                             <tr>
                                                                 <td>{item.id}</td>
                                                                 <td>{item.descricao}</td>
-                                                                <td>R$ {item.valor}</td>
-                                                                <td>{item.data}</td>
-                                                                <td>{String(item.situacao)}</td>
+                                                                <td>R$ {item.valor},00</td>
+                                                                <td>{item.data.replace('T00:00:00.000Z', "").substring(8,10)}/{item.data.replace('T00:00:00.000Z', "").substring(5,7)}/{item.data.replace('T00:00:00.000Z', "").substring(0,4)}</td>
+                                                                <td>{String(item.situacao).replace('false', "Não").replace('true', "Sim")}</td>
+                                                                <td>
+                                                                    <Link style={{ color: 'green' }} to={`/editar-receita/${item.id}`}> <i class="nav-icon far fa-edit"></i> Editar </Link>
+                                                                    <Link style={{ color: 'red' }} to={`/editar-receita/${item.id}`}> <i class="nav-icon far fa-trash-alt"></i> Excluir </Link>
+                                                                    <Link to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link>
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+
+                                                <br /><br />
+
+                                                {/* <table id="example1" class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style={{ width: 10 }}>ID</th>
+                                                            <th>Descrição</th>
+                                                            <th>Valor (R$)</th>
+                                                            <th>Data</th>
+                                                            <th>Recebido</th>
+                                                            <th>Ações</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {this.state.receita.map((item, index) => (
+                                                            <tr>
+                                                                <td>{item.id}</td>
+                                                                <td>{item.descricao}</td>
+                                                                <td>R$ {item.valor},00</td>
+                                                                <td>{item.data.replace('T00:00:00.000Z', "").substring(8,10)}/{item.data.replace('T00:00:00.000Z', "").substring(5,7)}/{item.data.replace('T00:00:00.000Z', "").substring(0,4)}</td>
+                                                                <td>{String(item.situacao).replace('false', "Não").replace('true', "Sim")}</td>
                                                                 <td>
                                                                     <Link to={`/editar-receita/${item.id}`}> <i class="nav-icon far fa-edit"></i> Editar </Link>
                                                                     <Link to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link>
@@ -168,20 +202,17 @@ export default class ListaReceitas extends Component {
                                                             </tr>
                                                         ))}
                                                     </tbody>
-                                                </table>
+                                                </table>*/}
                                             </div>
                                         </div>
                                     </div>
                                 </section>
-
-
                             </div>
                         </div>
                     </section>
                 </div>
                 <Footer />
             </div>
-
         )
     }
 }
