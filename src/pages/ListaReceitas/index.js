@@ -120,9 +120,18 @@ export default class ListaReceitas extends Component {
                                                 <h3 className="card-title">Listagem de Receitas</h3>
                                             </div>
                                             <div className="card-body">
-                                                <div className="row">
+                                            <div className="row">
                                                     <div className="col-10">
-                                                        <div className="form-group">
+                                                        <div className="input-group">
+                                                            <div className="input-group-prepend">
+                                                            <span className="input-group-text">
+                                                                <i className="far fa-calendar-alt" />
+                                                            </span>
+                                                            </div>
+                                                            <input type="text" className="form-control float-right" id="reservation" />
+                                                        </div>
+
+                                                        {/*<div className="form-group">
                                                             <select className="form-control select2 select2-success" data-dropdown-css-class="select2-success" style={{ width: '100%' }}>
                                                                 <option selected="selected">Selecione o Mês</option>
                                                                 <option value="01">Janeiro</option>
@@ -138,12 +147,14 @@ export default class ListaReceitas extends Component {
                                                                 <option value="11">Novembro</option>
                                                                 <option value="12">Dezembro</option>
                                                             </select>
-                                                        </div>
+        </div>*/}
                                                     </div>
                                                     <div className="col-2">
-                                                    <Link to="/incluir-receita/05" type="button" class="btn btn-success btn-sm"><i class="nav-icon far fa-search-dollar"></i> Buscar </Link>
+                                                        <Link to="/incluir-receita/05" type="button" class="btn btn-success btn-sm">Buscar </Link>
                                                     </div>
                                                 </div>
+
+                                                <br/>
 
                                                 <table className="table table-bordered">
                                                     <thead>
