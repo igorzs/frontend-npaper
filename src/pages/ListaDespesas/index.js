@@ -25,17 +25,17 @@ export default class ListaDespesas extends Component {
     }
     
     renderizaSoma(status) { 
-        if (status==="pendente"){ 
+        if (status ==="pendente"){ 
             const arrayDeValores = this.state.despesa?.filter((item) => {if(!item.situacao) return true }).map((item)=>item.valor)
             const somaDespesasPendentes=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
             return somaDespesasPendentes
         }
-        if (status==="recebido"){ 
+        if (status ==="recebido"){ 
             const arrayDeValores = this.state.despesa?.filter((item) => {if(item.situacao) return true }).map((item)=>item.valor)
             const somaDespesasRecebidas=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
             return somaDespesasRecebidas
         }
-        if (status==="total"){ 
+        if (status ==="total"){ 
             const arrayDeValores = this.state.despesa?.map((item)=>item.valor)
             const somaDespesasTotal=arrayDeValores.length>0 &&arrayDeValores.reduce((total, valor)=>total+=valor).toLocaleString('pt-br',{minimumFractionDigits: 2, maximumFractionDigits: 2 })
             return somaDespesasTotal
@@ -43,7 +43,6 @@ export default class ListaDespesas extends Component {
     }
 
     render() {
-         
         return (
             <div>
                 <Header />
@@ -122,7 +121,7 @@ export default class ListaDespesas extends Component {
                                             </div>
                                             <div className="card-body">
                                                 <div className="row">
-                                                    <div className="col-12">
+                                                    <div className="col-10">
                                                     <div className="form-group">
                                                         <select className="form-control select2 select2-success" data-dropdown-css-class="select2-success" style={{width: '100%'}}>
                                                             <option selected="selected">Selecione o Mês</option>
@@ -140,6 +139,9 @@ export default class ListaDespesas extends Component {
                                                             <option value="12">Dezembro</option>
                                                         </select>
                                                     </div>
+                                                    </div>
+                                                    <div className="col-2">
+                                                    <Link to="/incluir-despesa/05" type="button" class="btn btn-success btn-sm"><i class="nav-icon far fa-search-dollar"></i> Buscar </Link>
                                                     </div>
                                                 </div>
 
@@ -159,10 +161,14 @@ export default class ListaDespesas extends Component {
                                                             <tr>
                                                                 <td>{item.id}</td>
                                                                 <td>{item.descricao}</td>
-                                                                <td>R$ {item.valor}</td>
-                                                                <td>{item.data}</td>
-                                                                <td>{String(item.situacao)}</td>
-                                                                <td><Link to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link></td>
+                                                                <td>R$ {item.valor},00</td>
+                                                                <td>{item.data.replace('T00:00:00.000Z', "").substring(8,10)}/{item.data.replace('T00:00:00.000Z', "").substring(5,7)}/{item.data.replace('T00:00:00.000Z', "").substring(0,4)}</td>
+                                                                <td>{String(item.situacao).replace('false', "Não").replace('true', "Sim")}</td>
+                                                                <td>
+                                                                    <Link style={{ color: 'green' }} to={`/editar-despesa/${item.id}`}> <i class="nav-icon far fa-edit"></i> Editar </Link>
+                                                                    <Link style={{ color: 'red' }} to={`/editar-despesa/${item.id}`}> <i class="nav-icon far fa-trash-alt"></i> Excluir </Link>
+                                                                    <Link to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link>
+                                                                </td>
                                                             </tr>
                                                         ))}
                                                     </tbody>

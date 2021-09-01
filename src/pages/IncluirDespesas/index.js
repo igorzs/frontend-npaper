@@ -5,7 +5,6 @@ import Menu from "../../components/menu";
 import Footer from "../../components/footer";
 import './styles.css';
 
-
 export default class IncluirDespesas extends Component {
     constructor(props) {
         super(props);
@@ -64,82 +63,96 @@ export default class IncluirDespesas extends Component {
                                                 <h3 className="card-title">Incluir</h3>
                                             </div>
 
-
                                             <form className="form-despesa" onSubmit={this.handleSubmit}>
-                                                <fieldset>
-                                                    <legend>Incluir Despesa</legend>
-                                                    <div className="despesa-insert">
-                                                        <label htmlFor="nome">Descrição </label>
-                                                        <br />
-                                                        <input
-                                                            type="text"
-                                                            id="descricao"
-                                                            name="descricao"
-                                                            placeholder="Descrição"
-                                                            minLength="3"
-                                                            maxLength="100"
-                                                            required
-                                                            value={this.state.despesa.descricao}
-                                                            onChange={this.handleInputChange}
-                                                        />
-                                                    </div>
-                                                    <div className="despesa-insert">
-                                                        <label htmlFor="valor">Valor </label>
-                                                        <br />
-                                                        <input
-                                                            type="text"
-                                                            id="valor"
-                                                            name="valor"
-                                                            placeholder="Valor"
-                                                            required
-                                                            value={this.state.despesa.valor}
-                                                            onChange={this.handleInputChange}
-                                                        />
-                                                    </div>
-                                                    <div className="despesa-insert">
-                                                        <label htmlFor="data">Data</label>
-                                                        <br />
-                                                        <input
-                                                            type="date"
-                                                            id="data"
-                                                            name="data"
-                                                            placeholder="Data"
-                                                            required
-                                                            value={this.state.despesa.dataNascimento}
-                                                            onChange={this.handleInputChange}
-                                                        />
+
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="descricao">Descrição</label>
+                                                                <input
+                                                                    type="text"
+                                                                    id="descricao"
+                                                                    name="descricao"
+                                                                    placeholder="Descrição"
+                                                                    minLength="3"
+                                                                    maxLength="100"
+                                                                    class="form-control"
+                                                                    required
+                                                                    value={this.state.despesa.descricao}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                            </div>
+                                                        </div>
                                                     </div>
 
-                                                    <div className="despesa-insert">
-                                                        <label>
-                                                            <input
-                                                                type="radio"
-                                                                name="situacao"
-                                                                value="true"
-                                                                //checked={this.state.despesa.ativo === "true"}
-                                                                onChange={this.handleInputChange}
-                                                            />
-                                                            Pago
-                                                        </label>
-                                                        <label>
-                                                            <input
-                                                                type="radio"
-                                                                value="false"
-                                                                name="situacao"
-                                                                //checked={this.state.despesa.ativo === "false"}
-                                                                onChange={this.handleInputChange}
-                                                            />
-                                                            Não Pago
-                                                        </label>
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="descricao">Valor</label>
+                                                                <input
+                                                                    type="text"
+                                                                    id="valor"
+                                                                    name="valor"
+                                                                    placeholder="Valor"
+                                                                    class="form-control"
+                                                                    required
+                                                                    value={this.state.despesa.valor}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="data">Data</label>
+                                                                <input
+                                                                    type="date"
+                                                                    id="data"
+                                                                    name="data"
+                                                                    class="form-control"
+                                                                    placeholder="Data"
+                                                                    required
+                                                                    value={this.state.despesa.dataNascimento}
+                                                                    onChange={this.handleInputChange}
+                                                                />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="data">Situação</label><br />
+                                                                <label>
+                                                                    <input
+                                                                        type="radio"
+                                                                        name="situacao"
+                                                                        value="true"
+                                                                        //checked={this.state.despesa.ativo === "true"}
+                                                                        onChange={this.handleInputChange}
+                                                                    />
+                                                                    Recebido &nbsp;   &nbsp;
+                                                                </label>
+                                                                <label>
+                                                                    <input
+                                                                        type="radio"
+                                                                        value="false"
+                                                                        name="situacao"
+                                                                        //checked={this.state.despesa.ativo === "false"}
+                                                                        onChange={this.handleInputChange}
+                                                                    />
+                                                                    Não Recebido
+                                                                </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
-
-                                                    <button type="submit" className="btn btn-primary">
-                                                        Incluir
-                                                    </button>
-                                                </fieldset>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <button type="submit" className="btn btn-primary">Incluir</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
@@ -152,8 +165,6 @@ export default class IncluirDespesas extends Component {
             );
         }
     }
-
-
 
     handleInputChange = event => {
         const target = event.target;
