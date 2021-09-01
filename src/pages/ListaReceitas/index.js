@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import { Link } from "react-router-dom";
 import Header from "../../components/header";
 import Menu from "../../components/menu";
 import Footer from "../../components/footer";
 import './styles.css';
+import { Button } from '@material-ui/core';
 
 export default class ListaReceitas extends Component {
 
@@ -14,6 +15,8 @@ export default class ListaReceitas extends Component {
             receita: [],
             erro: null
         };
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -21,7 +24,7 @@ export default class ListaReceitas extends Component {
             .then(receita =>
                 receita.json().then(receita => this.setState({ receita }))
             )
-            .catch(erro => this.setState({ erro }));
+            .catch(erro => this.setState({ erro }));       
     }
 
     renderizaSoma(status) {
@@ -39,6 +42,21 @@ export default class ListaReceitas extends Component {
             const arrayDeValores = this.state.receita?.map((item) => item.valor)
             const somaReceitasTotal = arrayDeValores.length > 0 && arrayDeValores.reduce((total, valor) => total += valor).toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
             return somaReceitasTotal
+        }
+    }
+
+    handleClick = (event) => {
+        if(event.target.innerText.replace(" ", "") === "Excluir"){
+            
+            console.log(event.target.id);
+
+            fetch(`http://localhost:3001/api/lancamento/${event.target.id}`, {
+            method: "delete",
+            headers: { "Content-Type": "application/json"
+            }}).then(data => {
+                console.log(data);
+                window.location.reload();
+            }).catch(erro => this.setState({ erro }));
         }
     }
 
@@ -120,9 +138,18 @@ export default class ListaReceitas extends Component {
                                                 <h3 className="card-title">Listagem de Receitas</h3>
                                             </div>
                                             <div className="card-body">
-                                                <div className="row">
+                                            <div className="row">
                                                     <div className="col-10">
-                                                        <div className="form-group">
+                                                        <div className="input-group">
+                                                            <div className="input-group-prepend">
+                                                            <span className="input-group-text">
+                                                                <i className="far fa-calendar-alt" />
+                                                            </span>
+                                                            </div>
+                                                            <input type="text" className="form-control float-right" id="reservation" />
+                                                        </div>
+
+                                                        {/*<div className="form-group">
                                                             <select className="form-control select2 select2-success" data-dropdown-css-class="select2-success" style={{ width: '100%' }}>
                                                                 <option selected="selected">Selecione o Mês</option>
                                                                 <option value="01">Janeiro</option>
@@ -138,12 +165,14 @@ export default class ListaReceitas extends Component {
                                                                 <option value="11">Novembro</option>
                                                                 <option value="12">Dezembro</option>
                                                             </select>
-                                                        </div>
+        </div>*/}
                                                     </div>
                                                     <div className="col-2">
-                                                    <Link to="/incluir-receita/05" type="button" class="btn btn-success btn-sm"><i class="nav-icon far fa-search-dollar"></i> Buscar </Link>
+                                                        <Link to="/incluir-receita/05" type="button" class="btn btn-success btn-sm">Buscar </Link>
                                                     </div>
                                                 </div>
+
+                                                <br/>
 
                                                 <table className="table table-bordered">
                                                     <thead>
@@ -165,9 +194,9 @@ export default class ListaReceitas extends Component {
                                                                 <td>{item.data.replace('T00:00:00.000Z', "").substring(8,10)}/{item.data.replace('T00:00:00.000Z', "").substring(5,7)}/{item.data.replace('T00:00:00.000Z', "").substring(0,4)}</td>
                                                                 <td>{String(item.situacao).replace('false', "Não").replace('true', "Sim")}</td>
                                                                 <td>
-                                                                    <Link style={{ color: 'green' }} to={`/editar-receita/${item.id}`}> <i class="nav-icon far fa-edit"></i> Editar </Link>
-                                                                    <Link style={{ color: 'red' }} to={`/editar-receita/${item.id}`}> <i class="nav-icon far fa-trash-alt"></i> Excluir </Link>
-                                                                    <Link to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link>
+                                                                    <Link type="button" class="btn btn-success btn-xs" to={`/editar-receita/${item.id}`}> <i class="nav-icon far fa-edit"></i> Editar </Link> &nbsp;  
+                                                                    <button type="button" class="btn btn-danger btn-xs" id={item.id} onClick={this.handleClick} > <i class="nav-icon far fa-trash-alt"></i> Excluir </button> &nbsp; 
+                                                                    <Link type="button" class="btn btn-info btn-xs"  to={`/lancamento/${item.id}`}> <i class="nav-icon far fa-edit"></i> Acessar </Link>
                                                                 </td>
                                                             </tr>
                                                         ))}
